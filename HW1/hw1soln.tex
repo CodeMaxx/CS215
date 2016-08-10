@@ -1,0 +1,156 @@
+\title{Assignment 1: CS 215}
+\author{Akash Trehan-150050031, Bhavya Bahl-150050110}
+
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage[margin=0.5in]{geometry}
+\delimitershortfall-1sp
+\newcommand\abs[1]{\left|#1\right|}
+\usepackage{fancyhdr}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Akash Trehan-150050031, Bhavya Bahl-150050110}
+\begin{document}
+\maketitle
+$$\mu = Mean,\ \nu=Median,\ \sigma=Standard\ Deviation$$
+Ans 1.\begin{center}
+$$|\mu-\nu|=\abs{\frac{\sum\limits_{i=1}^nx_i}{n}-\nu}$$
+$$= \abs{\frac{\sum\limits_{i=1}^nx_i-n\nu}{n}}$$
+$$= \abs{\frac{\sum\limits_{i=1}^n(x_i-\nu)}{n}}$$
+$$\le \frac{\sum\limits_{i=1}^n\abs{x_i-\nu}}{n}\ (Extended\ Triangle\ Inequality)$$
+$$\le  \frac{\sum\limits_{i=1}^n\abs{x_i-\mu}}{n}\ (\because Absolute\ deviation\ is\ minimum\ for\ median)$$
+$$\le \sqrt{\frac{\sum\limits_{i=1}^n(x_i-\mu)^2}{n}}\ (R.M.S \ge A.M)$$
+$$\le \sqrt{\frac{\sum\limits_{i=1}^n(x_i-\mu)^2}{n-1}} = \sigma$$
+
+$$Thus\ \abs{\mu-\nu} \le \sigma$$
+Hence proved.
+\end{center}
+
+
+\pagebreak
+Ans 2.\begin{center}
+$$z_i = ax_i + b, a\neq 0$$
+$$w_i = cy_i + d, c\neq 0$$
+
+$$So\ \mu_z = a\mu_x + b \ and \ \mu_w = c\mu_y+d$$
+$$r(z,w) = \frac{\sum\limits_{i=1}^n(z_i - \mu_z)(w_i - \mu_w)}{\sqrt{{\sum\limits_{i=1}^n(z_i - \mu_z)^2}{\sum\limits_{i=1}^n(w_i - \mu_w)^2}}}$$
+$$Now \ z_i - \mu_z = ax_i + b - (a\mu_x +b) = a(x_i - \mu_x) \ \forall i,\ 1\le i \le n$$
+$$Similarly \ w_i - \mu_w = c(y_i - \mu_y) \ \forall i,\ 1\le i \le n$$
+
+$$Substituting\ values\ for\ (z_i - \mu_z)\ and\ (w_i - \mu_w), we\ have$$
+$$r(z,w) = \frac{\sum\limits_{i=1}^n(a(x_i - \mu_x))(c(y_i - \mu_y))}{\sqrt{{\sum\limits_{i=1}^n(a(x_i - \mu_x))^2}{\sum\limits_{i=1}^n(c(y_i - \mu_y))^2}}}$$
+$$= \frac{ac}{|ac|}\frac{\sum\limits_{i=1}^n(x_i - \mu_x)(y_i - \mu_y)}{\sqrt{{\sum\limits_{i=1}^n(x_i - \mu_x)^2}{\sum\limits_{i=1}^n(y_i - \mu_y)^2}}}$$
+$$=\frac{ac}{|ac|} r(x,y)= \pm r(x,y) \ (Since\ a\ne0\ and\ c\ne0)$$
+\centerline{Hence proved.}\newline
+Now, $\frac{ac}{|ac|}=1$ when a and c have the same sign and $\frac{ac}{|ac|}=-1$ when a and c have opposite signs.\newline
+Thus r(z,w)=r(x,y) when a and c have same sign and r(z,w)=-r(x,y) when a and c have opposite signs.
+\newline
+\newline
+\end{center}
+
+
+
+Ans 3.\begin{center}
+$$To\ prove:\ |x_i - \mu| \le \sigma\sqrt{n-1}\ \forall i$$ \newline
+By definition of standard deviation
+$$\sigma = \sqrt{\frac{\sum\limits_{i=1}^n(x_i-\mu)^2}{n-1}}$$
+$$\Rightarrow\ \sigma^2=\frac{\sum\limits_{i=1}^n(x_i-\mu)^2}{n-1}$$
+$$\Rightarrow\ \sigma^2\ge\frac{(x_i-\mu)^2}{n-1}, \forall i,1\le i\le n\ (\because\ all\ terms\ are\ positive)$$
+$$\Rightarrow\ (n-1)\sigma^2 \ge (x_i-\mu)^2\ (\because\ n-1 > 0)$$
+Both sides are positive, so taking square root on both sides we have,
+$$\sigma\sqrt{n-1} \ge |x_i-\mu|$$
+Hence proved.
+
+\vspace{50px}
+
+\textbf{Instructions for running code}
+\begin{enumerate}
+\item For Ques 4
+\begin{itemize}
+\item For first part of the question with random values added between 5 and 10 run file task4\_1.m in MATLAB.
+\item For first part of the question with random values added between 100 and 120 run file task4\_2.m in MATLAB.
+\item The relative mean squared error will be displayed on the console.
+\end{itemize}
+\item For Ques 5
+\begin{itemize}
+\item Add the files UpdateMedian.m, UpdateMean.m and UpdateStd.m to your Matlab working directory.
+\item Then call the function UpdateMean(OldMean, NewDataValue, A, N) with the Old mean, New value added, array A and the number of items originally in A respectively. This function returns the new mean of the data set.
+\item Call the function UpdateMedian(oldMedian, NewDataValue, A, N) with the Old median, New value added, array A and the number of items originally in A respectively. The function returns the new median of the data set.
+\item Call the function UpdateStd(OldMean, OldStd, NewMean, NewDataValue, A, N) with the Old mean, Old standard deviation, New mean, New value added, array A and the number of items originally in A respectively. The function returns the new Standard deviation of the data set.
+\end{itemize}
+\end{enumerate}
+\end{center}
+\vspace{50px}
+Ans 4.\begin{center}
+Moving \textbf{Median} filtering produced better relative mean squared error than Moving \textbf{Mean} filtering. The reason is that \textbf{Median is robust to outliers}. This means that the points far away from the mean do not have much effect on the median. This is because the middle element of the set either remains the same or changes to an element closeby. Mean on the other hand depends on the sum of all elements and outliers can have a huge effect on this sum. The graphs on the next page give a really good demonstration of this.
+\end{center}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{2.jpg}
+  \caption{Task 4(1)}
+  \label{fig:task4_1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{1.jpg}
+  \caption{Task 4(2)}
+  \label{fig:task4_2}
+\end{figure}
+\pagebreak
+
+Ans 5.\begin{center}
+\textbf{Formula for Updating Mean}
+\vspace{20px}
+$$newMean = \frac{OldMean*n + New DataValue}{n+1}$$
+\textbf{Derivation}
+\vspace{20px}
+$$OldMean = \frac{\sum\limits_{i=1}^nx_i}{n}$$
+$$\Rightarrow\ \sum\limits_{i=1}^nx_i = OldMean*n$$
+Now adding new value,
+$$\sum\limits_{i=1}^{n+1}x_i=OldMean*n + NewDataValue$$
+$$\Rightarrow\ newMean = \frac{\sum\limits_{i=1}^{n+1}x_i}{n+1}=\frac{OldMean*N + New DataValue}{n+1}$$
+\vspace{40px}
+
+\textbf{Formula for Updating Standard Deviation}
+\vspace{20px}
+$$newStd=\sqrt{\frac{(n-1)oldStd^2 + NewDataValue^2 + n\mu_{old}^2 - (n+1)\mu_{new}^2}{n}}$$
+\textbf{Derivation}
+\vspace{20px}
+$$oldStd=\sqrt{\frac{\sum\limits_{i=1}^n(x_i-\mu_{old})^2}{n-1}}$$
+$$newStd=\sqrt{\frac{\sum\limits_{i=1}^{n+1}(x_i-\mu_{new})^2}{n}}$$
+$$oldStd=\sqrt{\frac{\sum\limits_{i=1}^n(x_i^2+\mu_{old}^2-2x_i\mu_{old})}{n-1}}$$
+$$=\sqrt{\frac{\sum\limits_{i=1}^nx_i^2+n\mu_{old}^2-2\mu_{old}\sum\limits_{i=1}^nx_i}{n-1}}$$
+$$=\sqrt{\frac{\sum\limits_{i=1}^nx_i^2+n\mu_{old}^2-2n\mu_{old}^2}{n-1}}$$
+$$=\sqrt{\frac{\sum\limits_{i=1}^nx_i^2-n\mu_{old}^2}{n-1}}$$
+$$Similarly\ newStd=\sqrt{\frac{\sum\limits_{i=1}^{n+1}x_i^2-(n+1)\mu_{new}^2}{n}}$$
+$$=\sqrt{\frac{\sum\limits_{i=1}^{n}x_i^2+NewDataValue^2-(n+1)\mu_{new}^2}{n}}$$
+$$Now\ using\ oldStd\ we\ see \sum\limits_{i=1}^{n}x_i^2 = (n-1)oldStd^2 + n\mu_{old}^2$$
+$$newStd=\sqrt{\frac{(n-1)oldStd^2 + NewDataValue^2 + n\mu_{old}^2 - (n+1)\mu_{new}^2}{n}}$$
+\end{center}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

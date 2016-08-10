@@ -15,7 +15,7 @@ function newMedian = UpdateMedian(oldMedian,NewDataValue,A,N)
         end
     else
         if N == 1
-            newMedian = (oldMedian + newMedian)/2;
+            newMedian = (oldMedian + NewDataValue)/2;
         else
             if NewDataValue >= oldMedian
                 if NewDataValue >= A(1,(N + 1)/2 + 1)
