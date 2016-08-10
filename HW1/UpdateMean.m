@@ -1,3 +1,3 @@
-function newMean = UpdateMean(oldMean,newDataValue,A,N)
-    newMean = (oldMean*N + newDataValue)/(N+1);
+function newMean = UpdateMean(OldMean,NewDataValue,A,N)
+    newMean = (OldMean*N + NewDataValue)/(N+1);
     
