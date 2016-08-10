@@ -5,7 +5,7 @@ k = randperm(1001);
 k = k(1:40);
 z = y;
 for elm = k
-    z(elm) = z(elm) + 5 + 5*rand(1);
+    z(elm) = z(elm) + 100 + 20*rand(1);
 end
 
 y_median = zeros(1,1001);
