@@ -25,16 +25,19 @@ We know that $f_Z(z) = \frac{\text{d}}{\text{d}z}(F_Z(z))$
 $$F_Z(z) =P(XY \le z)= \int_{0}^{\infty}\int_{-\infty}^{\frac{z}{x}}f_{XY}(x,y)dydx + \int_{-\infty}^{0}\int_{\frac{z}{x}}^{\infty}f_{XY}(x,y)dydx$$
 $$\implies f_Z(z)=\frac{\text{d}}{\text{d}z}(F_Z(z))=\frac{\text{d}}{\text{d}z}(\int_{0}^{\infty}\int_{-\infty}^{\frac{z}{x}}f_{XY}(x,y)dydx)+\frac{\text{d}}{\text{d}z}(\int_{-\infty}^{0}\int_{\frac{z}{x}}^{\infty}f_{XY}(x,y)dydx)$$
 $$=\int_{0}^{\infty}\frac{\text{d}}{\text{d}z}(\int_{-\infty}^{\frac{z}{x}}f_{XY}(x,y)dy)dx+\int_{-\infty}^{0}\frac{\text{d}}{\text{d}z}(\int_{\frac{z}{x}}^{\infty}f_{XY}(x,y)dy)dx$$
-$$=\int_{0}^{\infty}\frac{f_{XY}(x,\frac{z}{x}}{x}dx + \int_{-\infty}^{0}(-1)\frac{f_{XY}(x,\frac{z}{x}}{x}dx$$
+$$=\int_{0}^{\infty}\frac{f_{XY}(x,\frac{z}{x})}{x}dx + \int_{-\infty}^{0}(-1)\frac{f_{XY}(x,\frac{z}{x})}{x}dx$$
 $$Now\ P(X \le Y) = \int_{-\infty}^{\infty}\int_{x}^{\infty}f_{XY}(x,y)dydx$$
 If X and Y are independent
-$$P(X \le Y) = \int_{-\infty}^{\infty}f_X(x)(\int_{x}^{\infty}f_Y(y)dy)dx$$
+$$f_Z(z) = \int_{0}^{\infty}\frac{f_{X}(x)f_Y(\frac{z}{x})}{x}dx + \int_{-\infty}^{0}(-1)\frac{f_{X}(x)f_Y(\frac{z}{x})}{x}dx$$
+$$P(X \le Y) = \int_{-\infty}^{\infty}f_X(x)(\int_{x}^{\infty}f_Y(y)dy)dx\ $$
+$$(Since  Y\ lies\ above\ the\ line\ y=x,\ we\ integrate\ the\ area\ above\ the\ line\ y=x.)$$
 $$=\int_{-\infty}^{\infty}f_X(x)(\int_{-\infty}^{\infty}f_Y(y)dy-\int_{-\infty}^{x}f_Y(y)dy)dx$$
 $$=\int_{-\infty}^{\infty}f_X(x)(1-F_Y(x))dx$$
 \newline
 \newline
 \end{center}
 
+\pagebreak
 Ans 2.\begin{center}
 $$Y_1=max(X_1,X_2,....,X_n)\ and\ Y_2=min(X_1,X_2,....,X_n)$$
 Since $X_1,X_2,...,X_n$ are identically distributed, their cdf($=F_X(x)$) and pdf($=f_X(x) = F_X'(x)$)
@@ -118,7 +121,7 @@ Hence $X_1\ and\ X_2$ are not independent.
 Thus $Covariance = 0 \not \Rightarrow Independence$
 
 \end{center}
-
+\pagebreak
 Ans 5.\begin{center}
 $$Var(X) = E((x-\mu)^2)$$
 $$We\ know\ that\ E((x-c)^2)\ is\ minimum\ when\ c = \mu$$
@@ -164,13 +167,16 @@ Ans 7.\begin{center}
 \end{table}
 \end{center}
 
+The correlation coefficient decreases because when we scramble the image, the intensity no more varies gradually. Its all very random. So there is no dependence between neighbours. So correlation coefficient decreases. The $2^{nd} and 3^{rd}$ measures also decrease because since the neighbours have independent intensities, the joint probability function comes closer to the product of individual probability functions. Hence the dependence decreases.
+
+The minimum value of measure (3) occurs when all the pixel value are of same intensity(say a completely black image). So the minimum value is 0.
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{graph2.jpg}
   \caption{Task 7b}
   \label{fig:task7b}
 \end{figure}
 
-Correlation coefficient decreases as z increases. This is because when z is small the pixels are closeby and the intensity usually varies
+Correlation coefficient decreases as z increases. This is because when z is small the pixels are closeby and since the intensity varies gradually for most part of the image(except the boundaries), so the corresponding X1 and X2 values are close to each other. Thus correlation is high for such neighbours. As z increases the intensities of neighbours  become more and more independent of each other. Thus correlation coefficient decreases.
 
 \pagebreak
 
