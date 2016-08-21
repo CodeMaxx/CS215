@@ -27,6 +27,10 @@ $$\implies f_Z(z)=\frac{\text{d}}{\text{d}z}(F_Z(z))=\frac{\text{d}}{\text{d}z}(
 $$=\int_{0}^{\infty}\frac{\text{d}}{\text{d}z}(\int_{-\infty}^{\frac{z}{x}}f_{XY}(x,y)dy)dx+\int_{-\infty}^{0}\frac{\text{d}}{\text{d}z}(\int_{\frac{z}{x}}^{\infty}f_{XY}(x,y)dy)dx$$
 $$=\int_{0}^{\infty}\frac{f_{XY}(x,\frac{z}{x}}{x}dx + \int_{-\infty}^{0}(-1)\frac{f_{XY}(x,\frac{z}{x}}{x}dx$$
 $$Now\ P(X \le Y) = \int_{-\infty}^{\infty}\int_{x}^{\infty}f_{XY}(x,y)dydx$$
+If X and Y are independent
+$$P(X \le Y) = \int_{-\infty}^{\infty}f_X(x)(\int_{x}^{\infty}f_Y(y)dy)dx$$
+$$=\int_{-\infty}^{\infty}f_X(x)(\int_{-\infty}^{\infty}f_Y(y)dy-\int_{-\infty}^{x}f_Y(y)dy)dx$$
+$$=\int_{-\infty}^{\infty}f_X(x)(1-F_Y(x))dx$$
 \newline
 \newline
 \end{center}
@@ -144,6 +148,31 @@ This holds for all $x=x_o$
 Let $x_o=E(x)$
 $$E(g(x)) \ge g(E(x))$$
 Hence proved.
+\newline
+\newline
 \end{center}
+\pagebreak
+
+Ans 7.\begin{center}
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+                        & \textbf{Corr. Coeff.} & \textbf{QMI} & \textbf{Measure (3)} \\
+\textbf{Normal Case}    & 0.9844                      & 0.0359       & 1.4735               \\
+\textbf{Scrambled case} & 0.0029                      & 2.5222e-06   & 0.0242              
+\end{tabular}
+\end{table}
+\end{center}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{graph2.jpg}
+  \caption{Task 7b}
+  \label{fig:task7b}
+\end{figure}
+
+Correlation coefficient decreases as z increases. This is because when z is small the pixels are closeby and the intensity usually varies
+
+\pagebreak
+
 
 \end{document}
