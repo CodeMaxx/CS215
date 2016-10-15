@@ -6,7 +6,7 @@ for c = 1:100
 X = rand(N(k),1);
 Y = -0.2*log(X);
 ml(c,k) = (N(k)/sum(Y)- 5)/5;
-bay(c,k) = ((sum(Y) + 5.5)/(N(k)+1) - 5)/5;
+bay(c,k) = ((N(k)+1)/(sum(Y) + 5.5) - 5)/5;
 end
 end
 subplot(2,1,1) 
