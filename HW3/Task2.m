@@ -13,7 +13,11 @@ subplot(2,1,1)
 boxplot(ml);
 title('Maximum Likelihood');
 set(gca,'XTickLabel',N);
+xlabel('N');
+ylabel('Relative Error');
 subplot(2,1,2) 
 boxplot(bay);
 title('Bayesian');
 set(gca,'XTickLabel',N);
+xlabel('N');
+ylabel('Relative Error');
