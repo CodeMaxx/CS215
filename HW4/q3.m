@@ -26,6 +26,8 @@ image_num(1,labels(1,i)+1) = image_num(1,labels(1,i) + 1) + 1;
 numbered_images(:,:,labels(1,i)+1) = numbered_images(:,:,labels(1,i) + 1) + images(:,:,i);
 end
 
+fclose(fp_image);
+
 for i = 1:10
    numbered_images(:,:,i) =  numbered_images(:,:,i)/image_num(1,i);
 end
@@ -35,8 +37,6 @@ images_785 = [images_785; labels];
 images_785 = images_785';
 images_785 = sortrows(images_785, 785);
 images_785 = images_785';
-
-size(images_785)
 
 covar = zeros(28*28, 28*28, 10);
 
@@ -62,7 +62,7 @@ for i=1:10
     max_eigenval(1,i) = j;
     max_eigenvec(:,i) = eigenvec(:,index, i);
     k = sort(eigenval(:,i));
-    plot(k);
+    plot(1:784,k);
     print(strcat(strcat('plot',num2str(i-1)),'.png'),'-dpng');
 end
 
@@ -80,14 +80,13 @@ for i=1:10
     plot2 = meannum(:,i);
     plot3 = meannum(:,i) + sqrt(f)*max_eigenvec(:,i);
     axis equal;
-%     subplot(1,3,1);
-%     imagesc(reshape(plot1,[28 28])');
-%     subplot(1,3,2);
-%     imagesc(reshape(plot2,[28 28])');
-%     subplot(1,3,3);
-%     imagesc(reshape(plot3,[28 28])');
-%     print(strcat(strcat('figure',num2str(i - 1)),'.png'),'-dpng');
+    subplot(1,3,1);
+    imagesc(reshape(plot1,[28 28])');
+    subplot(1,3,2);
+    imagesc(reshape(plot2,[28 28])');
+    subplot(1,3,3);
+    imagesc(reshape(plot3,[28 28])');
+    print(strcat(strcat('figure',num2str(i - 1)),'.png'),'-dpng');
 end
 
-fclose(fp_image);
 
