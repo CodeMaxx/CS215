@@ -80,13 +80,13 @@ for i=1:10
     plot2 = meannum(:,i);
     plot3 = meannum(:,i) + sqrt(f)*max_eigenvec(:,i);
     axis equal;
-    subplot(1,3,1);
-    imagesc(reshape(plot1,[28 28])');
-    subplot(1,3,2);
-    imagesc(reshape(plot2,[28 28])');
-    subplot(1,3,3);
-    imagesc(reshape(plot3,[28 28])');
-    print(strcat(strcat('figure',num2str(i - 1)),'.png'),'-dpng');
+%     subplot(1,3,1);
+%     imagesc(reshape(plot1,[28 28])');
+%     subplot(1,3,2);
+%     imagesc(reshape(plot2,[28 28])');
+%     subplot(1,3,3);
+%     imagesc(reshape(plot3,[28 28])');
+%     print(strcat(strcat('figure',num2str(i - 1)),'.png'),'-dpng');
 end
 
 fclose(fp_image);
