@@ -69,14 +69,14 @@ end
 num_modes = zeros(1,10);
 
 for i=1:10
-    num_modes(:,i) = sum(eigenval(:,i) > 1);
+    num_modes(:,i) = sum(eigenval(:,i) > 10000);
 end
 
 meannum = reshape(numbered_images, [784 10]);
 
 for i=1:10
     f = max_eigenval(1,i);
-    plot1 = meannum(:,i) + sqrt(f)*max_eigenvec(:,i);
+    plot1 = meannum(:,i) - sqrt(f)*max_eigenvec(:,i);
     plot2 = meannum(:,i);
     plot3 = meannum(:,i) + sqrt(f)*max_eigenvec(:,i);
     axis equal;
