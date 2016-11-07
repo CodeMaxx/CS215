@@ -46,7 +46,6 @@ for N = [10,10^2,10^3,10^4,10^5]
         xlabel('X');
         ylabel('Y');
         title(strcat('N = ',int2str(N)));
-        print(strcat(num2str(N),'.png'),'-dpng');
 end
 
 figure;
